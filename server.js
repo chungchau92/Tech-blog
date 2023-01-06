@@ -1,10 +1,13 @@
 const path = require("path")
 
+require("dotenv").config();
+
 const express = require("express");
 
 const exphbs = require("express-handlebars")
 
-const routes = require("./controllers")
+const routes = require("./controllers");
+const sequelize = require("./config/connection");
 
 const app = express();
 
@@ -20,6 +23,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(POST, () => {
-    console.log("Listening on http://localhost:"+ POST);
+sequelize.sync({ force: false }).then(() => {
+    app.listen(POST, () => {
+        console.log("Listening on http://localhost:"+ POST);
+    });
 });
+

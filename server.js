@@ -1,12 +1,11 @@
 const path = require("path")
 
-require("dotenv").config();
-
 const express = require("express");
 
 const exphbs = require("express-handlebars")
 
 const routes = require("./controllers");
+
 const sequelize = require("./config/connection");
 
 const app = express();
@@ -28,4 +27,3 @@ sequelize.sync({ force: false }).then(() => {
         console.log("Listening on http://localhost:"+ POST);
     });
 });
-

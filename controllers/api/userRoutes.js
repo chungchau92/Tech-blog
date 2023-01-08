@@ -18,6 +18,11 @@ router.post("/signup", async (req, res) => {
     }
 })
 
+router.get("/login", async (req,res) => {
+    const userData = await User.findAll();
+    res.json(userData);
+})
+
 // login user
 router.post("/login", async (req,res) => {
     try{
@@ -28,11 +33,8 @@ router.post("/login", async (req,res) => {
             return;
         }
     
-        const validPassword = await userData.checkPassword(userData.password);
-        console.log(userData.password);
-        console.log(req.body.password)
+        const validPassword = await userData.checkPassword(req.body.password);
     
-
         if(!validPassword) {
             res.status(400).json({message: "incorrect username or password, please try again"})
             return;
@@ -42,11 +44,22 @@ router.post("/login", async (req,res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             
-            res.json({ user: userData, message: 'You are now logged in!' });
+            res.json({ user: userData.username, message: 'You are now logged in!' });
           });
     } catch (err) {
         res.status(400).json(err);
     }
 })
 
+
+// log out user
+router.post("/logout", (req,res) => {
+    if(req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end()
+        });
+    } else {
+        res.status(404).end()
+    }
+})
 module.exports = router;

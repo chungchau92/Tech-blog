@@ -15,20 +15,27 @@
                     <a class="nav-link" href="/" style="color: #d9ead3; font-size: 1.5rem">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #d9ead3; font-size: 1.5rem">Dashboard</a>
+                    <a class="nav-link" href="/dashbroad" style="color: #d9ead3; font-size: 1.5rem">Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login" style="color: #d9ead3; font-size: 1.5rem">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #d9ead3; font-size: 1.5rem">Logout</a>
-                </li>
+
+                {{#if logged_in}}
+                    <li class="nav-item">
+                        <a id="logout" class="nav-link" href="" style="color: #d9ead3; font-size: 1.5rem">Logout</a>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login" style="color: #d9ead3; font-size: 1.5rem">Login</a>
+                    </li>
+                {{/if}}
               </ul>
         </nav>
         <h1 class="heading ms-4 font-weight-bold border border-5 rounded d-inline-block display-4 p-2" style="color: #231010; background:#d9ead3; box-shadow: 8px 8px #b2c0ad"> The Tech Blog</h1>
     </header>
-    <main style="background-color: #d9ead3; height: 100%;">
+    <main style="background-color: #d9ead3;">
         {{{body}}}
-    </main>
+    </main> 
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>

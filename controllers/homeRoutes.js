@@ -12,8 +12,5 @@ router.get("/signUp", (req,res) => {
     res.render("signUp")
 })
 
-router.get("/dashbroad", (req,res) => {
-    res.render("dashbroad")
-})
 
 module.exports = router;

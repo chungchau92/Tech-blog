@@ -13,8 +13,4 @@ router.get("/signUp", (req,res) => {
     res.render("signUp")
 })
 
-router.get("/dashbroad", auth, (req,res) => {
-    res.render("dashbroad", {logged_in: req.session.logged_in});
-})
-
 module.exports = router;

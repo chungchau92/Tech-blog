@@ -18,11 +18,6 @@ router.post("/signup", async (req, res) => {
     }
 })
 
-router.get("/login", async (req,res) => {
-    const userData = await User.findAll();
-    res.json(userData);
-})
-
 // login user
 router.post("/login", async (req,res) => {
     try{

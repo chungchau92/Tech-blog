@@ -1,21 +1,21 @@
 {{!-- render Posts --}}
 {{#if posts.length}}
-    <div class="pt-2">
+    <div class="pt-2 list-posts">
     {{#each posts as |post|}}
-        <div class="px-3 py-3">
+        <a class="px-3 py-3 post" href="api/posts/editPost/" style="text-decoration: none; color: white">
             <div class="d-flex justify-content-between rounded p-2" style="background-color: #6c757d;">
                 <h4 class="mb-0">{{post.title}}</h4>
-                <h4 class="mb-0">{{post.date_created}}</h4>
+                <h4 class="mb-0">{{format_date post.date_created}}</h4>
             </div>
-        </div>
+        </a>
     {{/each}}
     </div>
 {{/if}}
 
 
 {{!-- Form create post --}}
-<div class="p-5"> 
-     <form class="border border-5 border-dark" id="form" style="display: none">
+<div class="p-5 form-create" style="display: none"> 
+     <form class="border border-5 border-dark" id="form">
         <div class="ps-4 py-2" style="background-color: #231010;">
             <h3 style="color: #d9ead3;">Create new post</h3>
         </div>
@@ -33,15 +33,19 @@
 
         <!-- Create button -->
         <div class="d-grid px-4 " >
-            <button type="submit" class="btn btn-primary btn-block mb-2 bg-secondary text-white-50" id="btn-create-post">Create</button>
+            <button type="submit" class="btn btn-primary btn-block mb-2 bg-secondary" id="btn-create-post">Create</button>
         </div>
     
     </form>
 </div>
 
-{{!-- button  --}}
+{{!-- button new post --}}
 <div class="d-flex justify-content-center">
   <button class="btn m-4 btn-new-post" type="button" style="background-color: #231010; color: white; font-size: 1.6rem;">+ New Post</button>
 </div>
+
+
+
+
 
 <script src="../js/dashbroad.js"></script>

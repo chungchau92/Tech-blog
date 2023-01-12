@@ -66,8 +66,8 @@ router.put("/:id", async (req,res) => {
         res.status(500).json(err);
     }
 })
-
-router.get("/editPost", async (req,res) => {
-    res.render("editPost")
+// render edit Post
+router.get("/editPost/:id", async (req,res) => {
+    res.render("editPost", )
 })
 module.exports = router;

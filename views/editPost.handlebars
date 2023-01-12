@@ -7,13 +7,13 @@
         <!-- title input -->
         <div class="form-outline mb-2 px-4 py-2">
             <label class="form-label" for="title-edit-input">Title</label>
-            <input type="text" id="title-edit-input" class="form-control" />
+            <input type="text" id="title-edit-input" class="form-control" value="{{post.title}}"/>
         </div>
 
         <!-- Content input -->
         <div class="form-outline mb-3 px-4">
             <label class="form-label" for="content-edit-input">Content</label>
-            <textarea type="text" id="content-edit-input" class="form-control"></textarea>
+            <textarea type="text" id="content-edit-input" class="form-control">{{post.content}}</textarea>
         </div>
 
         <!-- Create button -->
@@ -24,3 +24,5 @@
     
     </form>
 </div>
+
+<script src="/editPost.js"></script>

@@ -13,16 +13,16 @@
         <!-- Content input -->
         <div class="form-outline mb-3 px-4">
             <label class="form-label" for="content-edit-input">Content</label>
-            <textarea type="text" id="content-edit-input" class="form-control">{{post.content}}</textarea>
+            <textarea type="text" id="content-edit-input"  class="form-control">{{post.content}}</textarea>
         </div>
 
         <!-- Create button -->
         <div class="d-grid px-4 " >
-            <button type="submit" class="btn btn-primary btn-block mb-2 bg-secondary" id="btn-update-post">Update post</button>
-            <button type="submit" class="btn btn-primary btn-block mb-2 bg-secondary" id="btn-delete-post">Delete post</button>
+            <button type="submit" class="btn btn-primary btn-block mb-2 bg-secondary" data-id="{{post.id}}" id="btn-update-post">Update post</button>
+            <button type="submit" class="btn btn-primary btn-block mb-2 bg-secondary" data-id="{{post.id}}" id="btn-delete-post">Delete post</button>
         </div>
     
     </form>
 </div>
 
-<script src="/editPost.js"></script>
+<script src="../../../js/editPost.js"></script>

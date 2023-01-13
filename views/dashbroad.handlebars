@@ -2,12 +2,12 @@
 {{#if posts.length}}
     <div class="pt-2 list-posts">
     {{#each posts as |post|}}
-        <a class="px-3 py-3 post" href="api/posts/editPost/{{post.id}}" style="text-decoration: none; color: white">
-            <div class="d-flex justify-content-between rounded p-2" style="background-color: #6c757d;">
+        <div class="post p-3">
+            <a href="api/posts/editPost/{{post.id}}" class="d-flex justify-content-between rounded p-2" style="background-color: #6c757d; text-decoration: none; color: white" >
                 <h4 class="mb-0">{{post.title}}</h4>
                 <h4 class="mb-0">{{format_date post.date_created}}</h4>
-            </div>
-        </a>
+            </a>
+        </div>
     {{/each}}
     </div>
 {{/if}}

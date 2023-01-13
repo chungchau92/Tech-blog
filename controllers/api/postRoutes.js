@@ -68,6 +68,14 @@ router.put("/:id", async (req,res) => {
 })
 // render edit Post
 router.get("/editPost/:id", async (req,res) => {
-    res.render("editPost", )
+    try {
+        const postData = await Post.findByPk(req.params.id);
+
+        const post = postData.get({plain: true});
+
+        res.render("editPost", {post} )
+    } catch (err) {
+        res.status(500).json(err)
+    }
 })
 module.exports = router;

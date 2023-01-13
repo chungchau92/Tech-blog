@@ -1,16 +1,16 @@
 {{!-- render Posts --}}
-{{#if posts.length}}
-    <div class="pt-2 list-posts">
-    {{#each posts as |post|}}
-        <div class="post p-3">
-            <a href="api/posts/editPost/{{post.id}}" class="d-flex justify-content-between rounded p-2" style="background-color: #6c757d; text-decoration: none; color: white" >
-                <h4 class="mb-0">{{post.title}}</h4>
-                <h4 class="mb-0">{{format_date post.date_created}}</h4>
+<div class="pt-2 px-3 list-posts">
+    {{#if posts.length}}
+        {{#each posts as |post|}}
+            <a class="px-3 py-3 post" href="api/posts/editPost/{{post.id}}" style="text-decoration: none; color: white">
+                <div class="d-flex justify-content-between rounded p-2" style="background-color: #6c757d;">
+                    <h4 class="mb-0">{{post.title}}</h4>
+                    <h4 class="mb-0">{{format_date post.date_created}}</h4>
+                </div>
             </a>
-        </div>
-    {{/each}}
-    </div>
-{{/if}}
+        {{/each}}
+    {{/if}}
+</div>
 
 
 {{!-- Form create post --}}
@@ -48,4 +48,4 @@
 
 
 
-<script src="../js/dashbroad.js"></script>
+<script src="/js/dashbroad.js"></script>

@@ -1,0 +1,19 @@
+<div class="p-5"> 
+    {{#each posts as |post|}}
+        <div class="border border-5 border-dark mb-5">
+            <a href="/api/comment/{{post.id}}" style="text-decoration: none;">
+                {{!-- title --}}
+                <div class="p-4 py-2 d-flex justify-content-between" style="background-color: #231010; color: white">
+                    <h3 class="title-post">{{post.title}}</h3>
+                    <h4 class="detail-post">Posted by {{post.user.username}} on {{format_date post.date_created}}</h4>
+                </div>
+                {{!-- content --}}
+                <div class="form-outline mb-2 px-4 py-2" style="color: #333">
+                    <div class="content-post">{{post.content}}</div>
+                </div>
+            </a>
+        </div>
+    {{/each}}
+</div>
+
+<script src="../../js/comment.js"></script>

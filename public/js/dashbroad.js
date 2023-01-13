@@ -1,19 +1,19 @@
-// clikck btn new post show form create post
+// click btn new post show form create post
 const newPostHandler = async () => {
-
+    
     const formCreate = document.querySelector(".form-create");
     const listPosts = document.querySelector(".list-posts")
-
+    
     if (formCreate.style.display === 'none') {
-        listPosts.style.display = "none"
         formCreate.style.display = 'block';
+        listPosts.style.display = "none"
     } else {
         listPosts.style.display = "block"
         formCreate.style.display = 'none';
     }
-
+    
 }
-// click btn create Post
+// click btn create Post to render the post
 const createPostHandler = async (event) => {
     event.preventDefault();
 
@@ -43,10 +43,3 @@ const editPostHandler = async () => {
 document.querySelector("#btn-create-post").addEventListener("click", createPostHandler)
 
 document.querySelector(".btn-new-post").addEventListener("click", newPostHandler);
-
-// loop post in all post then add event click
-const allPost = document.querySelectorAll(".post")
-    
-allPost.forEach((post) => {
-    post.addEventListener("click",editPostHandler)
-})

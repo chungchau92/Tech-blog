@@ -19,11 +19,6 @@ router.post("/create", async (req,res) => {
     }
 })
 
-//  get all posts created
-router.get("/", async (req,res) => {
-    const postData = await Post.findAll()
-    res.json(postData);
-})
 
 //  delete Post with ID
 router.delete("/:id", async (req,res) => {

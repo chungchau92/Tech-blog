@@ -1,8 +1,21 @@
 const router = require("express").Router();
+const { Post, User } = require("../models");
 const auth = require("../utils/auth")
 
-router.get("/", (req,res) => {
-    res.render("homepage",{logged_in: req.session.logged_in})
+// render All posts to homepage
+router.get("/", auth, async (req,res) => {
+    const postData = await Post.findAll({
+        include:{
+            model:User
+        }
+    });
+
+    const posts = postData.map((post) => {
+        return post.get({plain: true} )
+    })
+
+    console.log(posts)
+    res.render("homepage",{ posts, logged_in: req.session.logged_in})
 })
 
 router.get("/login", (req,res) => {

@@ -17,8 +17,8 @@
         <div class="p-4 py-2" style="background-color: #231010; color: white; height: 58px"></div>
 
         <div class="px-4 py-2" style="color: #333">
-            <div class="my-3" id="comment">fgdfgdfgdfgdgdg</div>
-            <div class="my-3">-adfhjdshfhsdu</div>
+            <div class="my-3" id="comment"></div>
+            <div class="my-3"></div>
         </div>
     </div>
 
@@ -29,8 +29,9 @@
 
         <label class="px-4 py-2">Comment</label>
         <div class="px-4 d-grid" style="color: #333">
-            <textarea class="my-2 form-control" id="input-comment">fgdfgdfgdfgdgdg</textarea>
-            <button type="submit" class="btn btn-block bg-secondary text-white-50 my-3">Submit</button>
+            <textarea class="my-2 form-control" id="input-comment"></textarea>
+            <button data-id="{{post.id}}" id="btn-create-comment" type="submit" class="btn btn-block bg-secondary text-white-50 my-3">Submit</button>
         </div>
     </div>
 </div>
+<script src="../../../js/comment.js"></script> 

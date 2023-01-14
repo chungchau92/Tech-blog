@@ -1,13 +1,35 @@
-const { Post } = require("../../models");
+const { Post, Comment } = require("../../models");
 
 const router = require("express").Router();
 
 router.get("/:id", async (req,res) => {
-    const postData = await Post.findByPk(req.params.id);
 
-    const post = postData.get({ plain: true})
+    try {
+        const postData = await Post.findByPk(req.params.id,);
+        
+    
+        const post = postData.get({ plain: true})
+    
+        res.render("comment", {post})
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
-    res.render("comment", {post})
+router.post("/:post_id", async (req,res) => {
+    
+    try{
+        const commentData = await Comment.create({
+            
+            
+        })
+        
+        
+        res.status(200).json(commentData);
+    } catch (err) {
+        res.status(400).json(err)
+    }
 })
 
 module.exports = router;
+

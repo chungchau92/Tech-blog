@@ -5,16 +5,13 @@ const auth = require("../utils/auth")
 // render All posts to homepage
 router.get("/", auth, async (req,res) => {
     const postData = await Post.findAll({
-        include:{
-            model:User
-        }
+        
     });
 
     const posts = postData.map((post) => {
         return post.get({plain: true} )
     })
 
-    console.log(posts)
     res.render("homepage",{ posts, logged_in: req.session.logged_in})
 })
 

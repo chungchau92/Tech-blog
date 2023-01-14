@@ -35,11 +35,6 @@ const createPostHandler = async (event) => {
     }
 }
 
-//  click post to edit
-const editPostHandler = async () => {
-    
-}
-
 document.querySelector("#btn-create-post").addEventListener("click", createPostHandler)
 
 document.querySelector(".btn-new-post").addEventListener("click", newPostHandler);

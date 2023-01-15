@@ -12,15 +12,16 @@
     </div>
 
     {{!-- COmment --}}
+    {{#each comments as |comment|}}
     <div class="border border-5 border-dark mb-4">
-        
         <div class="p-4 py-2" style="background-color: #231010; color: white; height: 58px"></div>
 
         <div class="px-4 py-2" style="color: #333">
-            <div class="my-3" id="comment"></div>
-            <div class="my-3"></div>
+            <div class="my-3" id="comment">{{comment.comment}}</div>
+            <div class="my-3">{{comment.user.username}}, {{format_date comment.date_created}}</div>
         </div>
     </div>
+    {{/each}}
 
     {{!-- submit comment --}}
     <div class="border border-5 border-dark mb-4">

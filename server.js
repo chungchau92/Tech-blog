@@ -44,3 +44,5 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening http://localhost:'+ PORT));
 });
+
+// mysql://b695676cc29cbd:89e3e9d5@us-cdbr-east-06.cleardb.net/heroku_dc99f8dade2429d?reconnect=true
